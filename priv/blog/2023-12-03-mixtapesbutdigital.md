@@ -11,8 +11,6 @@
 
 > Mixtapes is a non-complete project that is currently in development. The following is a description of the project and its future goals. Screenshots may be of previous versions of the project, and the project may have changed since the time of writing.
 
-## Introduction
-
 ![The homepage of the MVP 1.0v website](https://cdn.ey.lc/projects/mixtapes/firefox_JFvocGu4dK.gif)
 
 MixtapesBut.Digital is not just a playlist platform; it's a love letter to the mixtape culture, reimagined for the digital age. Built on the robust foundation of Spotify's playlist ecosystem, this standalone website offers a unique twist on music sharing. With a cap of just five songs—a nod to the film that inspired it—users can do more than just curate a list. They can draw, add images, and comment, turning each playlist into an intimate and artistic expression of their musical taste.
