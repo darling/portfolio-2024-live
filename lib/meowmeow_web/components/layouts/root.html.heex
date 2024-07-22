@@ -4,14 +4,46 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
-    <.live_title suffix=" · Phoenix Framework">
-      <%= assigns[:page_title] || "Meowmeow" %>
+    <.live_title suffix=" · black">
+      <%= assigns[:page_title] || "carter" %>
     </.live_title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
     </script>
   </head>
-  <body class="bg-white antialiased">
-    <%= @inner_content %>
+  <body class="antialiased">
+    <div class="pb-12 text-sm font-medium leading-relaxed tracking-wider selection:bg-indigo-700 selection:text-yellow-100">
+      <.container>
+        <div class="font-bold flex flex-col justify-between pb-8 pt-4 md:flex-row">
+          <div>
+            <h1 class="inline">
+              <a href="/" class="hover:underline">carter</a>
+            </h1>
+            <span class="hidden sm:inline">
+              @<.bold>safe</.bold>
+            </span>
+            <span class="hidden sm:inline">
+              @<.bold>unworthy</.bold>
+            </span>
+          </div>
+          <div class="select-all">
+            <.bold>hello</.bold>@unworthy.net
+          </div>
+        </div>
+        <%= @inner_content %>
+      </.container>
+    </div>
   </body>
 </html>

@@ -1,10 +1,5 @@
 import Config
 
-# Configure your database
-config :meowmeow, Meowmeow.Repo,
-  url:
-    "postgresql://postgres:kESrRYsRYocFePdepbeUFPfEABgROEZw@viaduct.proxy.rlwy.net:56038/railway"
-
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -22,6 +17,11 @@ config :meowmeow, MeowmeowWeb.Endpoint,
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:meowmeow, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:meowmeow, ~w(--watch)]}
+  ],
+  live_reload: [
+    patterns: [
+      ~r"priv/blog/.*(md)$"
+    ]
   ]
 
 # ## SSL Support

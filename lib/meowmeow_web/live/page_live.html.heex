@@ -1,4 +1,3 @@
-<.flash_group flash={@flash} />
 <script>
   function updateBouncingText() {
       document.querySelectorAll('.music-player').forEach(player => {
@@ -25,19 +24,23 @@
 
 <div class="h-full font-bold grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
   <div class="flex flex-col gap-4">
-    <div class="flex flex-col gap-2">
+    <div class="space-y-2 h-full">
       <h2>
         <.large>i am ...</.large>
       </h2>
-      <p>crafting experiences as a software engineer and designer.</p>
-      <p>passionate about music and its influence.</p>
-      <p>striving to foster healthy, genuine interactions between people and technology.</p>
+      <div class="flex md:text-lg md:h-full flex-col gap-6">
+        <p>crafting experiences from start-to-finish as a software engineer and designer.</p>
+        <p>
+          passionate about music, real-time tech, functional programming, and building things.
+        </p>
+        <p>striving to foster healthy, genuine interactions between people and technology.</p>
+      </div>
     </div>
   </div>
 
   <div class="flex flex-col gap-2">
     <h2>
-      <.large>working on</.large>
+      <.large>working on...</.large>
     </h2>
 
     <ul class="flex flex-col gap-2">
@@ -55,8 +58,7 @@
                     viewBox="0 0 24 24"
                     class="inline"
                   >
-                    <title>external_link_line</title>
-                    <g id="external_link_line" fill="none" fill-rule="nonzero">
+                    <g fill="none" fill-rule="nonzero">
                       <path d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z" /><path
                         class="fill-current"
                         d="M11 6a1 1 0 1 1 0 2H5v11h11v-6a1 1 0 1 1 2 0v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6Zm9-3a1 1 0 0 1 1 1v5a1 1 0 1 1-2 0V6.414l-8.293 8.293a1 1 0 0 1-1.414-1.414L17.586 5H15a1 1 0 1 1 0-2Z"
@@ -75,12 +77,15 @@
         </li>
       <% end %>
     </ul>
+    <a class="block text-white hover:underline transition duration-200 py-4" href="/posts">
+      learn more...
+    </a>
   </div>
 
   <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-2">
       <h2>
-        <.large>working at</.large>
+        <.large>a part of...</.large>
       </h2>
       <ul class="flex flex-col gap-2">
         <%= for experience <- @experiences do %>
@@ -103,24 +108,6 @@
         <% end %>
       </ul>
     </div>
-    <div :if={@lastfm} class="md:flex-grow flex flex-col md:justify-end gap-2">
-      <h2>
-        <.large>now playing</.large>
-      </h2>
-      <ul class="flex flex-col gap-4">
-        <li :for={song <- @lastfm} class="flex space-x-2 duration-300 overflow-hidden">
-          <div class="flex-grow w-full">
-            <h4 class="items-center truncate">
-              <span class="text-lg font-bold text-white">
-                <%= song.name %>
-              </span>
-            </h4>
-            <p class="text-sm"><%= song.artist %></p>
-          </div>
-          <a href={song.url} target="_blank" rel="noopener noreferrer" class="hover:underline">
-          </a>
-        </li>
-      </ul>
-    </div>
+    <.live_component module={MeowmeowWeb.MusicResultsLive} id="music-results" results={@results} />
   </div>
 </div>

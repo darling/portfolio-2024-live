@@ -1,4 +1,4 @@
-defmodule MeowmeowWeb.PageHTML do
+defmodule MeowmeowWeb.PostHTML do
   import MeowmeowWeb.Components
 
   @moduledoc """
@@ -8,5 +8,5 @@ defmodule MeowmeowWeb.PageHTML do
   """
   use MeowmeowWeb, :html
 
-  embed_templates "page_html/*"
+  embed_templates "post_html/*"
 end

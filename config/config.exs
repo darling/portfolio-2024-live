@@ -7,8 +7,11 @@
 # General application configuration
 import Config
 
+config :meowmeow, :lastfm,
+  api_key: System.get_env("LASTFM_API_KEY"),
+  username: System.get_env("LASTFM_USERNAME")
+
 config :meowmeow,
-  ecto_repos: [Meowmeow.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint

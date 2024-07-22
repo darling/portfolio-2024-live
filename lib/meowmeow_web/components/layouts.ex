@@ -1,4 +1,6 @@
 defmodule MeowmeowWeb.Layouts do
+  import MeowmeowWeb.Components
+
   @moduledoc """
   This module holds different layouts used by your application.
 

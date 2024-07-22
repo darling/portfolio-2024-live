@@ -17,7 +17,11 @@ defmodule MeowmeowWeb.Router do
   scope "/", MeowmeowWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    # get "/", PageController, :home
+    live "/", PageLive, :home
+
+    get "/posts/:id", PostController, :posts
+    get "/posts", PostController, :all_posts
   end
 
   # Other scopes may use custom stacks.

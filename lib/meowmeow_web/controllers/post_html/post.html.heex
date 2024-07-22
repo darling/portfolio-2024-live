@@ -1,0 +1,11 @@
+<.flash_group flash={@flash} />
+
+<.go dest="/posts">return to posts...</.go>
+
+<div class="py-8">
+  <div class="font-hind prose prose-lg lg:prose-lg">
+    <%= raw(@post.body) %>
+  </div>
+</div>
+
+<.go dest="/posts">return to posts...</.go>

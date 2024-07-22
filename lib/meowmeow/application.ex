@@ -9,13 +9,14 @@ defmodule Meowmeow.Application do
   def start(_type, _args) do
     children = [
       MeowmeowWeb.Telemetry,
-      Meowmeow.Repo,
       {DNSCluster, query: Application.get_env(:meowmeow, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Meowmeow.PubSub},
       # Start the Finch HTTP client for sending emails
       {Finch, name: Meowmeow.Finch},
       # Start a worker by calling: Meowmeow.Worker.start_link(arg)
       # {Meowmeow.Worker, arg},
+      MeowmeowWeb.Presence,
+      Meowmeow.ApiPoller,
       # Start to serve requests, typically the last entry
       MeowmeowWeb.Endpoint
     ]

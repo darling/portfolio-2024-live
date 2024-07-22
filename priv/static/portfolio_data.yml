@@ -1,0 +1,44 @@
+---
+experience:
+  - company: modrinth
+    link: https://modrinth.com
+    position: founding engineer
+    description: refactored, engaged with community, and developed new features
+  - company: mimu
+    link: https://mimu.bot
+    position: consultant & internal
+    description: codebase maintainer and internal tech support
+
+portfolio:
+  - title: mimu
+    description: the cutest discord bot serving 2+ million communities
+    type: external
+    link: https://mimu.bot
+  - title: knossos
+    description: frontend for modrinth platform 20+ million active players
+    type: external
+    link: https://modrinth.com
+  - title: theseus
+    description: minecraft launcher for modrinth platform with 100k+ active monthly users
+    type: external
+    link: https://app.modrinth.com
+  - title: 111logged.in
+    description: geocities inspired homepage for my favorite dj
+    type: external
+    link: https://111logged.in
+  - title: mixtapesbutdigital
+    description: express your feelings through music
+    type: personal
+  - title: road identity
+    description: host voting events for your car club
+    type: personal
+  - title: unworthy
+    description: a digital collective of privacy enthusiasts
+    type: external
+    link: https://unworthy.net
+  - title: ferris.gg
+    description: a community engagement solution for gamers
+    type: personal
+  - title: carter
+    description: my personal website
+    type: personal
