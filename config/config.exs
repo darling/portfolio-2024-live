@@ -13,6 +13,7 @@ config :meowmeow,
 # Configures the endpoint
 config :meowmeow, MeowmeowWeb.Endpoint,
   url: [host: "localhost"],
+  check_origin: ["https://carter.black"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [html: MeowmeowWeb.ErrorHTML, json: MeowmeowWeb.ErrorJSON],
