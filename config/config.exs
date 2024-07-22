@@ -7,10 +7,6 @@
 # General application configuration
 import Config
 
-config :meowmeow, :lastfm,
-  api_key: System.get_env("LASTFM_API_KEY"),
-  username: System.get_env("LASTFM_USERNAME")
-
 config :meowmeow,
   generators: [timestamp_type: :utc_datetime]
 
