@@ -12,7 +12,7 @@ kill_signal = 'SIGTERM'
 [deploy]
 
 [env]
-  PHX_HOST = 'meowmeow-crimson-sound-9812.fly.dev'
+  PHX_HOST = 'carter.black'
   PORT = '8080'
 
 [http_service]
