@@ -1,4 +1,4 @@
-let Hooks = {}
+let Hooks: Record<string, any> = {}
 
 Hooks.FadeIn = {
   mounted() {

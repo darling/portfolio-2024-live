@@ -20,23 +20,24 @@ import "phoenix_html"
 // Establish Phoenix Socket and LiveView configuration.
 import { Socket } from "phoenix"
 import { LiveSocket } from "phoenix_live_view"
-import topbar from "../vendor/topbar"
+
 import Hooks from "./hooks"
 
-let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
+let csrfToken = document.querySelector("meta[name='csrf-token']")?.getAttribute("content");
 let liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
   params: { _csrf_token: csrfToken },
   hooks: Hooks
 })
 
-// Show progress bar on live navigation and form submits
-topbar.config({ barColors: { 0: "#29d" }, shadowColor: "rgba(0, 0, 0, .3)" })
-window.addEventListener("phx:page-loading-start", _info => topbar.show(300))
-window.addEventListener("phx:page-loading-stop", _info => topbar.hide())
-
 // connect if there are any LiveViews on the page
 liveSocket.connect()
+
+declare global {
+  interface Window {
+    liveSocket: LiveSocket
+  }
+}
 
 // expose liveSocket on window for web console debug logs and latency simulation:
 // >> liveSocket.enableDebug()
@@ -44,19 +45,19 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
-export function updateSongs(songs) {
+export function updateSongs(songs: unknown) {
   const songsList = document.getElementById("music-results-songs-list");
-  const existingItems = songsList.querySelectorAll("li");
-  
-  // Trigger fade-out for existing items
-  existingItems.forEach(item => {
-    item.classList.add("opacity-0");
-  });
-  
-  // Wait for the fade-out transition to complete before updating the stream
-  setTimeout(() => {
-    liveSocket.execJS(songsList, JSON.stringify([
-      ["stream", "songs", songs]
-    ]));
-  }, 300);
+  const existingItems = songsList?.querySelectorAll("li");
+
+  if (songsList && existingItems) {
+    existingItems.forEach(item => {
+      item.classList.add("opacity-0");
+    });
+
+    setTimeout(() => {
+      liveSocket.execJS(songsList, JSON.stringify([
+        ["stream", "songs", songs]
+      ]));
+    }, 300);
+  }
 }

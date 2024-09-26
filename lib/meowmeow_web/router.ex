@@ -19,6 +19,7 @@ defmodule MeowmeowWeb.Router do
 
     # get "/", PageController, :home
     live "/", PageLive, :home
+    live "/test", TestLive, :home
 
     get "/posts/:id", PostController, :posts
     get "/posts", PostController, :all_posts
