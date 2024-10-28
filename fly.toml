@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for meowmeow-crimson-sound-9812 on 2024-07-22T14:37:15-07:00
+# fly.toml app configuration file generated for meowmeow-dawn-wildflower-9956 on 2024-10-28T14:00:40-07:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'meowmeow-crimson-sound-9812'
+app = 'meowmeow-dawn-wildflower-9956'
 primary_region = 'lax'
 kill_signal = 'SIGTERM'
 
@@ -18,9 +18,9 @@ kill_signal = 'SIGTERM'
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = true
+  auto_stop_machines = 'stop'
   auto_start_machines = true
-  min_machines_running = 1
+  min_machines_running = 0
   processes = ['app']
 
   [http_service.concurrency]
@@ -30,3 +30,4 @@ kill_signal = 'SIGTERM'
 
 [[vm]]
   size = 'shared-cpu-1x'
+  memory = '1g'
